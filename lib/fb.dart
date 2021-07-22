@@ -9,7 +9,7 @@ import 'engine/oauth.dart';
 
 /// Enables Facebook [OAuth] authentication
 class FacebookAuth extends Visa {
-  final baseUrl = 'https://www.facebook.com/v8.0/dialog/oauth';
+  final baseUrl = 'https://www.facebook.com/v11.0/dialog/oauth';
 
   @override
   SimpleAuth visa;
