@@ -98,7 +98,9 @@ class OAuth {
           debug('In OAuth -> Url = $url');
           debug('In OAuth -> Redirect Url = $redirectUri');
         }
-
+        if (redirectUri.contains('google')) {
+          return NavigationDecision.prevent;
+        }
         return NavigationDecision.navigate;
       };
 
