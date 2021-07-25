@@ -33,13 +33,15 @@ class GoogleAuth extends Visa {
           var baseProfileUrl = 'https://people.googleapis.com/v1/people/me';
           var profileUrl = '$baseProfileUrl?personFields=$personFields';
 
-          var profileResponse = await http.get(Uri.parse(profileUrl),
-              headers: {'Authorization': 'Bearer $token'});
-          var profileJson = json.decode(profileResponse.body);
-          if (debugMode)
-            debug('In GoogleAuth -> Returned Profile Json: $profileJson');
+          // var profileResponse = await http.get(Uri.parse(profileUrl),
+          //     headers: {'Authorization': 'Bearer $token'});
+          // var profileJson = json.decode(profileResponse.body);
+          // if (debugMode)
+          //   debug('In GoogleAuth -> Returned Profile Json: $profileJson');
 
-          return authData(profileJson, oauthData);
+          return authData(
+            // profileJson,
+           oauthData);
         });
   }
 
@@ -47,18 +49,20 @@ class GoogleAuth extends Visa {
   /// from the user [profileJson] and auth response [oauthData]
   /// to build an [AuthData] object.
   AuthData authData(
-      Map<String, dynamic> profileJson, Map<String, String> oauthData) {
+      // Map<String, dynamic> profileJson,
+       Map<String, String> oauthData) {
     final String accessToken = oauthData[OAuth.TOKEN_KEY];
     return AuthData(
         clientID: oauthData['clientID'],
         accessToken: accessToken,
-        userID: profileJson['metadata']['sources'][0]['id'],
-        firstName: profileJson['names'][0]['givenName'],
-        lastName: profileJson['names'][0]['familyName'],
-        email: profileJson['emailAddresses'][0]['value'],
-        profileImgUrl: profileJson['photos'][0]['url'],
+        // userID: profileJson['metadata']['sources'][0]['id'],
+        // firstName: profileJson['names'][0]['givenName'],
+        // lastName: profileJson['names'][0]['familyName'],
+        // email: profileJson['emailAddresses'][0]['value'],
+        // profileImgUrl: profileJson['photos'][0]['url'],
         response: oauthData,
-        userJson: profileJson);
+        // userJson: profileJson,
+        );
   }
 
   /// Merges the provided personFields with
