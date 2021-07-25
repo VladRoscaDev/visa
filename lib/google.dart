@@ -49,17 +49,17 @@ class GoogleAuth extends Visa {
   AuthData authData(
       Map<String, dynamic> profileJson, Map<String, String> oauthData) {
     final String accessToken = oauthData[OAuth.TOKEN_KEY];
-
     return AuthData(
         clientID: oauthData['clientID'],
         accessToken: accessToken,
-        userID: profileJson['metadata']['sources'][0]['id'],
-        firstName: profileJson['names'][0]['givenName'],
-        lastName: profileJson['names'][0]['familyName'],
-        email: profileJson['emailAddresses'][0]['value'],
-        profileImgUrl: profileJson['photos'][0]['url'],
+        // userID: profileJson['metadata']['sources'][0]['id'],
+        // firstName: profileJson['names'][0]['givenName'],
+        // lastName: profileJson['names'][0]['familyName'],
+        // email: profileJson['emailAddresses'][0]['value'],
+        // profileImgUrl: profileJson['photos'][0]['url'],
         response: oauthData,
-        userJson: profileJson);
+        // userJson: profileJson,
+        );
   }
 
   /// Merges the provided personFields with
