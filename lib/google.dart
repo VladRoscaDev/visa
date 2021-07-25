@@ -30,17 +30,17 @@ class GoogleAuth extends Visa {
           if (debugMode) debug('In GoogleAuth -> OAuth token: $token');
 
           // User profile API endpoint.
-          var baseProfileUrl = 'https://people.googleapis.com/v1/people/me';
-          var profileUrl = '$baseProfileUrl?personFields=$personFields';
+          // var baseProfileUrl = 'https://people.googleapis.com/v1/people/me';
+          // var profileUrl = '$baseProfileUrl?personFields=$personFields';
 
-          var profileResponse = await http.get(Uri.parse(profileUrl),
-              headers: {'Authorization': 'Bearer $token'});
-          var profileJson = json.decode(profileResponse.body);
-          if (debugMode)
-            debug('In GoogleAuth -> Returned Profile Json: $profileJson');
+          // var profileResponse = await http.get(Uri.parse(profileUrl),
+          //     headers: {'Authorization': 'Bearer $token'});
+          // var profileJson = json.decode(profileResponse.body);
+          // if (debugMode)
+          //   debug('In GoogleAuth -> Returned Profile Json: $profileJson');
 
           return authData(
-            profileJson,
+            {},
            oauthData);
         });
   }
